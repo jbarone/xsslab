@@ -1,0 +1,6 @@
+PROJECT_ROOT=./www/html
+
+MYSQL_ROOT_PASSWORD=secret
+MYSQL_DATABASE=xsslab
+MYSQL_USER=xsslab
+MYSQL_PASSWORD=xsslab

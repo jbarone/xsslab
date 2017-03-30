@@ -1,0 +1,1 @@
+H4X0R<script>document.getElementById("logo").innerHTML="<a href='/'>H4X0R LAB</a>"</script>

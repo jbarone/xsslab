@@ -1,0 +1,56 @@
+version: "2.1"
+
+services:
+    nginx:
+        build: ./nginx/
+        ports:
+            - 80:80
+        volumes:
+            - "${PROJECT_ROOT}:/var/www/html:ro"
+            - "./nginx/log/:/var/log/nginx/"
+        networks:
+            - server
+        depends_on:
+            - php
+
+    php:
+        build: ./php/
+        expose:
+            - 9000
+        volumes:
+            - "${PROJECT_ROOT}:/var/www/html"
+        networks:
+            - server
+            - database
+        depends_on:
+            - mysql
+        env_file:
+            - ./.env
+
+    mysql:
+        image: mysql:latest
+        volumes:
+            - "./mysql:/docker-entrypoint-initdb.d"
+            - "data:/var/lib/mysql:rw"
+        networks:
+            - database
+        env_file:
+            - ./.env
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        networks:
+            - database
+        depends_on:
+            - mysql
+        environment:
+            PMA_HOST: mysql
+
+volumes:
+    data:
+
+networks:
+    database:
+    server:

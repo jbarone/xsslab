@@ -6,6 +6,10 @@ $view = new Template();
 
 require_once('session.php');
 
+if (!$_SESSION['logged_in']) {
+    header('location: login.php');
+}
+
 $view->content = <<<EOS
         <section id="main" class="wrapper style1">
             <header class="major">

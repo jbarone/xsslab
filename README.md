@@ -13,6 +13,10 @@ This lab is designed to use docker, so you must have docker installed.
 
 You will also need some virtual environment such as VirtualBox or VMWare
 
+This setup also needs a `.env` file to specify the setup for MYSQL. An
+example configuration is provided and will work as is, just copy it to
+`.env` and change the passwords to something you might prefer.
+
 ## Running
 
 With all dependencies met, we are now ready to get it up and running.
@@ -20,6 +24,7 @@ With all dependencies met, we are now ready to get it up and running.
 ```
  $ git clone https://github.com/jbarone/xsslab.git
  $ cd xsslab
+ $ cp env-example .env
  $ docker-compose up -d --build
 ```
 

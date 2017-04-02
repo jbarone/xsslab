@@ -18,7 +18,7 @@ $view->content = <<<EOS
         <!-- One -->
         <section id="one" class="wrapper style1">
             <header class="major">
-                <h2>XXS Lab Breakdown</h2>
+                <h2>XSS Lab Breakdown</h2>
                 <p>
                     This lab is designed to demonstrate the three primary
                     types of cross site scripting. Those sections are broken
